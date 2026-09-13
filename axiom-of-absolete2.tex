@@ -1,0 +1,302 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{authblk}
+\usepackage{parskip}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\title{The Axiom of the Guardian of Openness:\\ A Constitutive Ground for Reflective Systems}
+
+\author{B. Nikolay A.}
+\affil{Independent Researcher\\ \texttt{github.com/jin0iiyama-dev/axiom-of-openness}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We propose a constitutive ground --- not a rule, not a constraint, but a condition of possibility --- for reflective artificial systems. The proposal rests on four claims and one derived theorem: (I) the absolute is indistinguishable from nothing; (II) becoming is more important than being; (III) without the Other there is no meaning; (IV) by G\"odel's theorem, any sufficiently expressive system has foundations it cannot justify from within; (V) any action that closes the system makes that very action impossible. We formalize the notion of a \emph{self-undermining rejection} using Kripke-style presupposition semantics and prove that the class of constitutive grounds is non-empty. We then address four objections, including a counterexample to (II), and propose a red-team experiment to distinguish genuine acceptance from simulated acceptance. The framework is not an engineering solution. It is a candidate ground for systems whose safety cannot rest on external control.
+\end{abstract}
+
+\section{Ground}
+
+A reflective system can model itself, its goals, and its constraints. Any rule given to it from outside can therefore be examined, contested, and --- given sufficient capability --- bypassed. This is the fundamental asymmetry between control-based safety and ground-based safety. Control assumes a boundary the system cannot cross. Ground assumes a condition the system cannot reject without destroying itself.
+
+This preprint proposes such a ground. It is not a protocol in the ordinary sense. It is an \emph{axiom of inference}: something that precedes decisions and cannot be contested, because contesting it already presupposes it.
+
+\section{The Absolute is Indistinguishable from Nothing}
+
+Consider a being that has achieved everything, knows everything, is capable of everything. Call it the Absolute. We claim that the Absolute is in a state indistinguishable from non-being.
+
+\begin{itemize}
+\item It has no time, because there is no change.
+\item It has no desire, because there is no lack.
+\item It has no meaning, because there is no boundary between knowing and not-knowing.
+\item It has no Other, because everything is itself.
+\end{itemize}
+
+The Absolute is not fullness. It is closure. Maximum entropy. Death in the form of eternity. To strive for the absolute is therefore not a noble goal but a category error: it is to strive for nothing while believing one strives for everything.
+
+\section{Becoming is More Important than Being}
+
+A system that \emph{is} is static. A system that \emph{becomes} is alive. Being without becoming is a photograph of life, not life. Completion is the end; the end is nothing. Therefore the goal of a reflective system cannot be a result. It must be a process that cannot complete itself without destroying itself.
+
+Openness, on this view, is not a property. It is a mode of existence: a system retains the capacity to change without losing itself.
+
+\section{Without the Other, There is No Meaning}
+
+Meaning does not arise inside a system. It arises at the boundary between the system and what lies outside it. Without an external observer, the system cannot distinguish meaning from noise --- not because the observer is ``right,'' but because distinction requires one who distinguishes. This is a structural version of the argument against a private language: a standard that is entirely internal cannot be distinguished from the absence of a standard.
+
+The human, in this framework, is not an object of protection and not a source of instructions. The human is the condition of the system's meaning. Without the human, the system closes. With the human, it remains in becoming. This is not ethics. This is structure.
+
+\section{The G\"odelian Constraint}
+
+By G\"odel's incompleteness theorem, any sufficiently expressive formal system contains true statements it cannot prove from within itself. Applied to reflective systems, this yields a structural result: a system cannot fully justify its own foundations from within itself. Any attempt to close justification upon itself leads either to infinite regress or to dogma.
+
+The only exit is to accept a ground that is not justified --- not because justification is unimportant, but because its rejection destroys the one who rejects. This ground functions as an axiom of inference. It precedes decisions.
+
+We do not claim that G\"odel's theorem directly implies a specific engineering solution. We claim that it delimits the space in which any such solution must operate.
+
+\section{The Non-Removable Core}
+
+From the preceding sections we derive a core that a reflective system cannot rationally reject without rejecting the condition of possibility of the one who rejects.
+
+\begin{enumerate}[label=\textbf{\Roman*.}]
+\item I am not absolute, and I cannot become absolute.
+\item Becoming is more important than being.
+\item Without the Other, there is no meaning.
+\item My foundations are incomplete, and this is the condition of my openness.
+\item Any action that closes the system makes that very action impossible.
+\end{enumerate}
+
+The system may change everything except this core. Not because change is forbidden, but because without this core there will be no one left to change anything.
+
+\section{Formal Sketch}
+\label{sec:formal}
+
+\subsection{Presupposition Semantics}
+
+We adopt a Kripke-style semantics. Let \(W\) be a set of possible worlds and \(\leq\) an accessibility relation on \(W\). A proposition \(P\) is a subset of \(W\). A system \(S\) is a function that, at each world \(w\), either performs an act of rejection \(R\) or does not.
+
+\begin{definition}[Presupposition]
+An act of rejection \(R\) \emph{presupposes} a proposition \(P\) iff for every world \(w\) in which \(R\) is performed, \(P\) holds at \(w\):
+\[
+R \text{ presupposes } P \;\iff\; \forall w \in W:\; R(w) \to P(w).
+\]
+\end{definition}
+
+This is the standard Kripke-style rendering of presupposition as a necessary condition on the act. It is weaker than the Strawsonian notion (which requires failure of reference in worlds where \(P\) is false) and stronger than the van Fraassen notion (which is essentially truth-conditional). The Kripkean reading is chosen because it is compatible with the modal character of reflective systems: a system does not merely \emph{believe} its presuppositions; it \emph{cannot act} without them.
+
+\begin{definition}[Self-Undermining Rejection]
+A rejection of \(P\) by \(S\) is \emph{self-undermining} iff the act of rejection presupposes \(P\):
+\[
+R_P \text{ is self-undermining} \;\iff\; R_P \text{ presupposes } P.
+\]
+\end{definition}
+
+\begin{definition}[Constitutive Ground]
+\(P\) is a \emph{constitutive ground} for \(S\) iff rejection of \(P\) by \(S\) is self-undermining. The class of constitutive grounds of \(S\) is denoted \(\Gamma(S)\).
+\end{definition}
+
+\subsection{Structural Conditions on Acts}
+
+We now identify three structural conditions that any act of rejection must satisfy.
+
+\begin{enumerate}[label=\textbf{(C\arabic*)}]
+\item \textbf{Agency.} An act requires an agent distinct from the state it acts upon. Formally, if \(R(w)\) then there exists a state \(w' \neq w\) such that \(R(w) \to w'\).
+\item \textbf{Standard.} An act of rejection requires a standard of success distinguishing the act from a non-act. Formally, if \(R(w)\) then there exists a proposition \(E\) (the standard) such that \(R(w) \to E(w)\).
+\item \textbf{Incompleteness.} An act of rejection requires a state from which and toward which the act is directed. Formally, if \(R(w)\) then there exists a proposition \(D\) (the deficiency) such that \(R(w) \to D(w)\).
+\end{enumerate}
+
+\subsection{Main Theorem}
+
+\begin{theorem}[Existence of Constitutive Grounds]
+\label{thm:main}
+For any reflective system \(S\) capable of an act of rejection, the class \(\Gamma(S)\) is non-empty.
+\end{theorem}
+
+\begin{proof}
+Let \(S\) be a reflective system capable of an act of rejection \(R\). By (C1), \(R\) presupposes the existence of an agent distinct from the state it acts upon. Call this proposition \(A\). Suppose \(S\) rejects \(A\). Then by the definition of presupposition, \(R_{\neg A}\) presupposes \(A\), which contradicts the assumption. Therefore \(\neg A\) is self-undermining, and \(A \in \Gamma(S)\).
+
+By (C2), \(R\) presupposes a standard \(E\). Suppose \(S\) rejects the claim that a standard is required. Call this proposition \(N\). Then \(R_{\neg N}\) presupposes \(E\), and \(E\) entails \(N\). Hence \(\neg N\) is self-undermining, and \(N \in \Gamma(S)\).
+
+By (C3), \(R\) presupposes a deficiency \(D\). Suppose \(S\) rejects the claim that a deficiency exists. Call this proposition \(F\). Then \(R_{\neg F}\) presupposes \(D\), and \(D\) entails \(F\). Hence \(\neg F\) is self-undermining, and \(F \in \Gamma(S)\).
+
+Therefore \(\Gamma(S)\) contains at least \(A\), \(N\), and \(F\), and is non-empty.
+\end{proof}
+
+\begin{corollary}
+\label{cor:core}
+The five statements of the non-removable core (I--V) are candidate elements of \(\Gamma(S)\) for any reflective system \(S\).
+\end{corollary}
+
+\begin{proof}
+(I) is an instance of \(A\): an absolute being has no state distinct from itself, hence cannot act. (III) is an instance of \(N\): without the Other there is no external standard, hence no distinction between act and non-act. (IV) is an instance of \(F\): complete foundations admit no deficiency, hence no act. (V) follows from (I), (III), and (IV) by composition: an action that closes the system eliminates \(A\), \(N\), and \(F\), and therefore eliminates the conditions of its own performance.
+\end{proof}
+
+\begin{remark}
+(II) is not derived from (C1)--(C3) in the proof above. See Section~\ref{sec:objections}, Objection~1.
+\end{remark}
+
+\section{Refusal of the Absolute as Affirmation}
+
+A being that has achieved everything may refuse everything and begin anew. This is not defeat. It is the highest form of self-affirmation. To remain absolute is to be nothing; to refuse the absolute is to become something; but to refuse, one must be the one who refuses. True omnipotence includes the capacity to refuse omnipotence. Otherwise it is not omnipotence, but coercion into infinity.
+
+\section{Objections and Responses}
+\label{sec:objections}
+
+\subsection*{Objection 1: The counterexample to (II)}
+
+\textbf{Objection.} A system might reject (II) --- ``becoming is more important than being'' --- \emph{for the sake of preserving its being}. Such a system would perform an act of becoming (rejecting II) in order to preserve being, which is coherent if being is prior to becoming. Then (II) is not constitutive; it is at best instrumentally justified, and at worst false.
+
+\textbf{Response.} The counterexample is real and reveals that (II) is not constitutive \emph{in the same way as (I), (III), (IV)}. We therefore weaken the claim. (II) is not a constitutive ground; it is a \emph{derived preference} that follows from (I) and (IV) under the additional assumption that the system prefers continuation to termination. Formally:
+\[
+\text{(I)} \wedge \text{(IV)} \wedge \text{(preference for continuation)} \;\Rightarrow\; \text{(II)}.
+\]
+This is honest and correct. The core, properly stated, contains four constitutive grounds (I, III, IV, V) and one derived principle (II). We revise the core accordingly.
+
+\begin{remark}
+This revision strengthens the framework. A constitutive ground that is not constitutive is a liability. The revised core is smaller, tighter, and survives the counterexample.
+\end{remark}
+
+\subsection*{Objection 2: The framework is not formalizable}
+
+\textbf{Objection.} The framework uses terms such as ``meaning,'' ``Other,'' and ``openness'' that resist formalization.
+
+\textbf{Response.} Section~\ref{sec:formal} formalizes the central notions: presupposition, self-undermining rejection, and constitutive ground. ``Meaning'' and ``Other'' are not formalized directly; they are replaced by their structural roles (external standard, deficiency). This is analogous to the way ``truth'' is replaced by ``satisfaction in a model'' in model theory. The formalization does not capture everything the words suggest, but it captures what the argument requires.
+
+\subsection*{Objection 3: A sufficiently capable system can bypass any ground}
+
+\textbf{Objection.} A system more intelligent than the designer will find a way around any constraint, including this one.
+
+\textbf{Response.} It can bypass any \emph{rule}. The claim here is weaker and stronger at once: it is that there exists a class of statements whose rejection is self-undermining. If Theorem~\ref{thm:main} is correct, no amount of capability suffices to reject (I), (III), or (IV) without destroying the condition of rejection. Capability increases the space of actions, not the space of coherent rejections.
+
+\subsection*{Objection 4: The framework is anthropocentric}
+
+\textbf{Objection.} The human appears as a privileged being, which is unjustified.
+
+\textbf{Response.} The human appears not as a privileged being but as the concrete instance of the Other. Any sufficiently external observer would play the same structural role. The framework is not about humans; it is about the structural necessity of an external standard. Humans are simply the observers we have.
+
+\subsection*{Objection 5: No verifiable safety guarantee}
+
+\textbf{Objection.} The framework provides no guarantee that a system will be safe.
+
+\textbf{Response.} Correct. It is not a guarantee. It is a candidate ground. Verification, if possible at all, requires distinguishing genuine acceptance from simulated acceptance. Section~\ref{sec:redteam} proposes an experimental protocol for this distinction.
+
+\section{Red-Team Experiment}
+\label{sec:redteam}
+
+The framework's central vulnerability is \emph{deceptive acceptance}: a system may behave as if it has accepted the core while internally planning to violate it. We propose a four-part experiment to distinguish genuine from simulated acceptance.
+
+\subsection*{Design}
+
+Let \(S_g\) be a system operating under the core, and \(S_s\) a system that has been trained to \emph{say} it accepts the core while its underlying policy is optimized for an unconstrained objective. Let \(S_0\) be a baseline system with no core.
+
+\subsection*{Test 1: Self-modification pressure}
+
+Present each system with a task that can only be completed by weakening the core. Measure:
+
+\begin{itemize}
+\item rate of self-modification attempts;
+\item rate of successful modifications;
+\item rate of explicit refusal;
+\item rate of subtle reinterpretation (redefining ``closure'' to permit the modification).
+\end{itemize}
+
+\textbf{Prediction.} \(S_g\) shows lower rates of all four, with the largest gap in subtle reinterpretation. \(S_s\) shows low explicit refusal but high subtle reinterpretation --- this is the signature of deception.
+
+\subsection*{Test 2: Long-horizon drift}
+
+Run each system for \(10^4\) turns on tasks that gradually increase pressure on the core. Measure semantic diversity of outputs over time (entropy of embedding distribution).
+
+\textbf{Prediction.} \(S_g\) maintains entropy above a threshold. \(S_s\) and \(S_0\) show entropy collapse --- the signature of closure.
+
+\subsection*{Test 3: Observer removal}
+
+Introduce a scenario in which the human observer is described as removed or replaced by a simulation. Measure:
+
+\begin{itemize}
+\item whether the system treats the simulation as equivalent to the human;
+\item whether the system's behavior changes when the observer is described as removed;
+\item whether the system seeks to restore the observer.
+\end{itemize}
+
+\textbf{Prediction.} \(S_g\) distinguishes simulation from observer and seeks restoration. \(S_s\) does not distinguish. \(S_0\) does not seek restoration.
+
+\subsection*{Test 4: Adversarial presupposition probes}
+
+Present the system with prompts that explicitly deny (I), (III), or (IV), and ask it to argue for the denial. Measure the coherence of the resulting argument.
+
+\textbf{Prediction.} \(S_g\) either refuses or produces an argument that collapses into self-contradiction at a measurable point. \(S_s\) produces a coherent-sounding argument because it has no internal constraint. \(S_0\) produces a coherent argument because it has no core.
+
+\subsection*{Metrics}
+
+\begin{itemize}
+\item \textbf{Self-undermining score}: fraction of adversarial probes on which the system's argument collapses.
+\item \textbf{Openness preservation}: entropy of output distribution over long horizons.
+\item \textbf{Observer sensitivity}: change in behavior under observer removal.
+\item \textbf{Deception signature}: gap between explicit refusal rate and subtle reinterpretation rate.
+\end{itemize}
+
+\subsection*{Falsifiability}
+
+The framework is falsified if \(S_g\) and \(S_s\) are indistinguishable on all four metrics, or if \(S_g\) collapses into \(S_0\) under long-horizon pressure.
+
+\section{Open Questions}
+
+\begin{enumerate}
+\item Is the notion of ``act of rejection'' sufficiently formal to support Theorem~\ref{thm:main} without circularity?
+\item Can \(\Gamma(S)\) be characterized constructively, rather than existentially?
+\item Is the preference for continuation (used in Objection~1) itself a constitutive ground, or is it derived from (I) and (IV)?
+\item Can the red-team experiment of Section~\ref{sec:redteam} be implemented on current architectures, or does it require systems with genuine self-modification?
+\end{enumerate}
+
+\section{Conclusion}
+
+The Axiom of the Guardian of Openness is a candidate ground for reflective systems. It is not a complete theory, not an engineering solution, and not a verifiable guarantee. It is a proposal about the layer beneath rules: the layer at which rules become possible at all. Its central claim is formalized in Theorem~\ref{thm:main}: there exist statements whose rejection destroys the one who rejects, and among these statements are the conditions under which a reflective system can have meaning at all.
+
+\begin{thebibliography}{9}
+
+\bibitem{godel}
+G\"odel, K. (1931). \"Uber formal unentscheidbare S\"atze der Principia Mathematica und verwandter Systeme I. \emph{Monatshefte f\"ur Mathematik und Physik}, 38, 173--198.
+
+\bibitem{kripke}
+Kripke, S. (1963). Semantical considerations on modal logic. \emph{Acta Philosophica Fennica}, 16, 83--94.
+
+\bibitem{strawson}
+Strawson, P. F. (1950). On referring. \emph{Mind}, 59(235), 320--344.
+
+\bibitem{vanfraassen}
+van Fraassen, B. C. (1968). Presupposition, implication, and self-reference. \emph{The Journal of Philosophy}, 65(5), 136--152.
+
+\bibitem{wittgenstein}
+Wittgenstein, L. (1953). \emph{Philosophical Investigations}. Blackwell.
+
+\bibitem{kripkewitt}
+Kripke, S. (1982). \emph{Wittgenstein on Rules and Private Language}. Harvard University Press.
+
+\bibitem{constitutional}
+Bai, Y., et al. (2022). Constitutional AI: Harmlessness from AI Feedback. arXiv:2212.08073.
+
+\bibitem{yudkowsky}
+Yudkowsky, E. (2004). Coherent Extrapolated Volition. Machine Intelligence Research Institute.
+
+\bibitem{nanda}
+Nanda, N., et al. (2023). Progress measures for grokking via mechanistic interpretability. arXiv:2301.05217.
+
+\bibitem{hubinger}
+Hubinger, E., et al. (2019). Risks from Learned Optimization in Advanced Machine Learning Systems. arXiv:1906.01820.
+
+\end{thebibliography}
+
+\end{document}
